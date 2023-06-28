@@ -1,0 +1,31 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+int SnakeWaterGun(char you,char comp){
+    if(you==comp){
+        return 0;}
+        else if((you=='s'&&comp=='w')||(you=='w'&&comp=='g')||(you=='g'&&comp=='s')){
+        return 1;}
+        else{return -1;}
+}
+int main(){
+    char you,comp;
+    srand(time(0));
+    int number= rand()%100+1;
+    if(number<33){
+        comp='s';}
+        else if(number<66){
+        comp='w';}
+        else{comp='g';}
+        cout<<"Enter's'for snake,'w'for Water,'g' for gun\n"<<endl;
+        cin>>you;
+        int result =SnakeWaterGun(you,comp);
+        if (result==0){
+            cout<<"Game Drawn\n";
+            cout<<"Your choice is equal to computer choice"<<endl;
+        }
+        else if (result==1){
+            cout<<"You Win\n";
+        }else{cout<<"You Loose\n";}
+        return 0;
+}
